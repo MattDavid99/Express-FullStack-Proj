@@ -1,1 +1,25 @@
-h1 Rendered Pug File!!!
+doctype html
+html
+    head
+      title This is a Pug
+      script(src="###")
+      link(rel="stylesheet", href="##")
+
+    body
+      h1 Rendered Pug File!!!
+      div
+        p A message!
+        p Another message!
+      .container
+        .row
+          .col #{msg}
+          .col Your message is..#{msg2}
+          .col !{html}
+        .row
+          ul.col
+            each country in countries
+              li= country.name + '----' + country.capital
+              if country.western
+                .western This country is in the western hemisphere
+
+      div message of the day: 2+2 = #{2+2}
