@@ -1,1 +1,15 @@
-<h1>Rendered File!!!</h1>
+<h1>HBS Rendered File!!!</h1>
+
+Your message is: {{msg}} !!!
+
+{{{html}}}
+
+
+{{!-- each,if,unless "this is a comment" --}}
+
+{{#each countries}}
+
+  {{#unless this.western}}
+    <li>{{this.name}} -- {{this.capital}}</li>
+  {{/unless}}
+{{/each}}
