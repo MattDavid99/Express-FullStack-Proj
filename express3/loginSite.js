@@ -26,6 +26,23 @@ app.use(cookieParser())
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
+app.use((req, res, next) => {
+
+    if (req.query.msg === 'fail') {
+        res.locals.msg = `Sorry this username and password does not exist`
+    }
+
+    else {
+        res.locals.msg = ``
+    }
+
+    // Send me onto the next piece of middleware
+    next()
+})
+
+
+
+
 
 
 app.get('/', (req, res, next) => {
@@ -40,7 +57,7 @@ app.get('/login', (req, res, next) => {
     // req.query is an obj, with a property of every key in the query string
     // The query string is where you put insecure data
 
-    console.log(req.query); // <<-- this will print { msg: 'fail', test: 'hello'}
+    // console.log(req.query); // <<-- this will print { msg: 'fail', test: 'hello'}
     res.render('login')
 })
 
