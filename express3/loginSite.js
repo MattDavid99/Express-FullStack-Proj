@@ -35,6 +35,12 @@ app.get('/', (req, res, next) => {
 // -------------------------------
 
 app.get('/login', (req, res, next) => {
+
+    // the req object has a query property in Express
+    // req.query is an obj, with a property of every key in the query string
+    // The query string is where you put insecure data
+
+    console.log(req.query); // <<-- this will print { msg: 'fail', test: 'hello'}
     res.render('login')
 })
 
@@ -57,7 +63,11 @@ app.post('/process_login', (req, res, next) => {
     }
 
     else {
-        res.redirect('/login?msg=fail')
+        // the "?" is a special character in a URL
+        // ----- 1. they hold key/value pairs: "msg=fail"
+        // ----- 2. multiple key/value pairs are serperated by "&"
+
+        res.redirect('/login?msg=fail&test=hello') // <<-- this is the query string
     }
 
     // res.json(req.body)
