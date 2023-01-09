@@ -142,7 +142,16 @@ app.get('/story/:storyId/:link', (req, res, next) => {
 // ------------------------------------------------------------------------------------------------------------------------------
 
 
+app.get('/statement', (req, res, next) => {
+    // This ⬇️ will render statment IN the browser, which we dont want
+    // res.sendFile(path.join(__dirname, 'userStatements/BankStatementChequing.png'))
 
+    // app has a download method! Takes 2 args!:
+    // 1. filename
+    // 2. optionally, what you want the filename to download as
+    res.download(path.join(__dirname, 'userStatements/BankStatementChequing.png'), 'JimsStatment.png')
+
+})
 
 
 
