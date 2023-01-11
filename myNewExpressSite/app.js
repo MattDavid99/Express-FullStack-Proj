@@ -4,8 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const helmet = require('helmet')
-app.use(helmet())
+// const helmet = require('helmet')
+// app.use(helmet())
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
