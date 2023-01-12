@@ -9,7 +9,7 @@ const imageBaseUrl = 'http://image.tmdb.org/t/p/w300';
 
 router.use((req, res, next) => {
   res.locals.imageBaseUrl = imageBaseUrl;
-  next()
+  next() // <<-- without this images also won't load
 })
 
 /* GET home page. */
@@ -33,5 +33,22 @@ router.get('/', function (req, res, next) {
 
   // res.render('index', {}); // <<-- this is loading index.ejs, that is why you see styles
 });
+
+// Link for clicking on movies ⬇️⬇️
+// /movie/:id is a wildcard route.
+// that means that :id is going to be stored in...
+
+router.get('/movie/:id', (req, res, next) => {
+  // res.json(req.params.id)
+  const movieId = req.params.id
+  const thisMovieUrl = `${apiBaseUrl}/movie/${movieId}?api_key=${apiKey}`
+  // res.send(thisMovieUrl)
+  request.get(thisMovieUrl, (error, response, movieData) => {
+    const parsedData = JSON.parse(movieData)
+    res.render('single-movie', {
+      parsedData
+    })
+  })
+})
 
 module.exports = router;

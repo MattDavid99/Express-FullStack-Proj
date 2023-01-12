@@ -22,7 +22,7 @@
           <!-- we have an array: called parsedData -->
           <% parsedData.forEach((movie)=>{ %>
             <div class="col-md-3 col-sm-4 poster">
-              <img src="<%= imageBaseUrl + movie.poster_path %>" />
+              <a href="/movie/<%= movie.id %>"><img src="<%= imageBaseUrl + movie.poster_path %>" /></a>
             </div>
             <%}) %>
 
