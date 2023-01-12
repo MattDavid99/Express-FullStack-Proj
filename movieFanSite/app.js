@@ -9,7 +9,12 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 const helmet = require("helmet") // <<-- Remember to: npm install helmet --save
-app.use(helmet())
+app.use(helmet.contentSecurityPolicy({
+  useDefaults: true,
+  directives: {
+    "img-src": ["'self'", "https: data:"]
+  }
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
