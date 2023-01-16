@@ -23,6 +23,18 @@ app.use(helmet.contentSecurityPolicy({
   }
 }))
 
+app.use((req, res, next) => {
+  // cut off response if API key is bad
+  if (req.query.api_key != 123456789) {
+
+    res.status(401) // <<-- Unauthorized = 401, NOT a 200
+    res.json('Invaild API Key')
+
+  } else {
+    next()
+  }
+})
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
