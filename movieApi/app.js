@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// Changed dir to FullStackProj
 
 
 const helmet = require("helmet") // <<-- Remember to: npm install helmet --save
