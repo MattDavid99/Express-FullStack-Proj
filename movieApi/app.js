@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   if (req.query.api_key != 123456789) {
 
     res.status(401) // <<-- Unauthorized = 401, NOT a 200
-    res.json('Invaild API Key')
+    res.json('Invaild api Key')
 
   } else {
     next()

@@ -35,8 +35,8 @@ router.get('/movie', (req, res, next) => {
 // GET/search/person
 router.get('/person', (req, res, next) => {
     const searchTerm = req.query.query
-    const results = people.filter((movie) => {
-        let found = movie.overview.includes(searchTerm) || movie.title.includes(searchTerm)
+    const results = people.filter((person) => {
+        let found = person.name.includes(searchTerm)
         return found
     })
     res.json({ results })
