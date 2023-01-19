@@ -53,7 +53,7 @@ app.use(function (err, req, res, next) {
 
 // ------------------------------------------------------------ (API Key)
 // API key: 1fb720b97cc13e580c2c35e1138f90f8
-// API key: 1fb720b97cc13e580c2c35e1138f90f8
+// API key: 1fb720b97cc13e580c2c35e1138f90f8 <<-- duplicate
 
 // If you want to get your own (or this stops working), sign up here: https://www.themoviedb.org/documentation/api?language=en-US
 
